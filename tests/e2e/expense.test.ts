@@ -48,7 +48,14 @@ describe.sequential("Expense CRUD", () => {
    })
 
    test("get expenses list with filters by date", async () => {
-      const expensesList = await trpcClient.getExpenses.query({})
+      const yesterday = new Date()
+      yesterday.setDate(yesterday.getDate() - 1)
+      const filters = {
+         dateFrom: yesterday.toISOString(),
+         dateTo: new Date().toISOString()
+      }
+
+      const expensesList = await trpcClient.getExpenses.query({ filters })
 
       expect(expensesList[0]).toBeDefined()
 
