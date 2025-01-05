@@ -5,9 +5,13 @@ To use API you need tRPC client. I created CLI for this purpose which acts as a 
 
 **Project status: 🟢Ready to use**
 
+---
+
 ### Features
 
 Features are described here - https://roadmap.sh/projects/expense-tracker-api
+
+---
 
 ### How to run API
 
@@ -22,6 +26,8 @@ Features are described here - https://roadmap.sh/projects/expense-tracker-api
 2. Generate 2x base64 strings for JWT secrets
 3. Change NODE_ENV to `production`
 4. Run `bun run start` in CLI
+
+---
 
 ### Testing
 
