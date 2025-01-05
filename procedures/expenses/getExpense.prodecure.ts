@@ -6,7 +6,7 @@ export const getExpenseInputSchema = z.object({
    id: z.string().uuid()
 })
 
-export const getExpenseProcedure = authentificatedProcedure.input(getExpenseInputSchema).mutation(async (opts) => {
+export const getExpenseProcedure = authentificatedProcedure.input(getExpenseInputSchema).query(async (opts) => {
    const result = await getExpenseResolver(opts)
    return result
 })

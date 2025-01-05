@@ -6,6 +6,10 @@ export class UserService {
       return client.user.create({ data: { email: user.email, password: user.hashedPassword } })
    }
 
+   removeUserFromDatabase(userId: User["id"]) {
+      return client.user.delete({ where: { id: userId } })
+   }
+
    getUserFromDatabaseById(userId: User["id"]) {
       return client.user.findUnique({ where: { id: userId } })
    }

@@ -12,7 +12,7 @@ export const getExpensesInputSchema = z.object({
       .nullable()
 })
 
-export const getExpensesProcedure = authentificatedProcedure.input(getExpensesInputSchema).mutation(async (opts) => {
+export const getExpensesProcedure = authentificatedProcedure.input(getExpensesInputSchema).query(async (opts) => {
    const result = await getExpensesResolver(opts)
    return result
 })
