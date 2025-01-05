@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest"
+import { afterAll, describe, expect, test } from "vitest"
 import { apiUrl, fetchCookie, trpcClient } from "./client"
 import { generateMock } from "@anatine/zod-mock"
 import { loginInputSchema } from "../../procedures/auth/login.procedure"
@@ -51,5 +51,10 @@ describe.sequential("Authentification flow", () => {
             expect(value).toBe("")
          }
       })
+   })
+
+   afterAll(async () => {
+      await trpcClient.login.mutate(user)
+      await trpcClient.removeUser.mutate()
    })
 })
