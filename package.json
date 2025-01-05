@@ -1,11 +1,10 @@
 {
    "scripts": {
       "test": "vitest",
-      "dev": "bun server.ts"
+      "start": "bun server.ts"
    },
    "dependencies": {
       "@prisma/client": "^6.1.0",
-      "@trpc/client": "^11.0.0-rc.682",
       "@trpc/server": "^11.0.0-rc.682",
       "bcrypt": "^5.1.1",
       "consola": "^3.3.3",
@@ -18,6 +17,7 @@
       "zod": "^3.24.1"
    },
    "devDependencies": {
+      "@trpc/client": "^11.0.0-rc.682",
       "@anatine/zod-mock": "^3.13.4",
       "@types/bcrypt": "^5.0.2",
       "@types/cookies": "^0.9.0",
