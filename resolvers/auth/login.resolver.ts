@@ -6,8 +6,8 @@ import { JWTService } from "../../services/jwt.service"
 import { AuthentificationService } from "../../services/authentification.service"
 import { UserService } from "../../services/user.service"
 import { User } from "@prisma/client"
-import { makeStrictEnum } from "@prisma/client/runtime/library"
 import ms from "ms"
+
 export default async function (opts: ResolverOptsType<typeof publicLoggedProcedure, typeof loginProcedure>) {
    const { email, password } = opts.input
    const ctx = opts.ctx
@@ -44,12 +44,11 @@ export default async function (opts: ResolverOptsType<typeof publicLoggedProcedu
       maxAge: ms(accessToken.expiresIn)
    })
 
-   if (refreshToken)
-      ctx.cookieJar.set("Refresh", refreshToken.token, {
-         httpOnly: true,
-         secure: !(process.env.NODE_ENV !== "production"),
-         maxAge: ms(refreshToken.expiresAt)
-      })
+   ctx.cookieJar.set("Refresh", refreshToken.token, {
+      httpOnly: true,
+      secure: !(process.env.NODE_ENV !== "production"),
+      maxAge: ms(refreshToken.expiresAt)
+   })
 
    return user.id
 }

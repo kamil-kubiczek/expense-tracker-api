@@ -1,4 +1,4 @@
-import { publicProcedure } from "../init"
+import { publicProcedure } from "../trpc"
 import consola from "consola"
 import { colorize } from "consola/utils"
 
