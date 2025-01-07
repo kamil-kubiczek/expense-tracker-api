@@ -24,7 +24,7 @@ Features are described here - https://roadmap.sh/projects/expense-tracker-api
 
 1. Copy `.env.example` and rename to `.env`
 2. Generate 2x base64 strings for JWT secrets
-3. Change NODE_ENV to `production`
+3. Change NODE_ENV to `development`. production mode needs `CLIENT_URL` to be set up to handle CORS properly
 4. Run `bun run start` in CLI
 
 ---
