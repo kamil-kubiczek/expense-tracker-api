@@ -1,10 +1,12 @@
 {
+   "name": "expense-tracker-api",
+   "version": "1.0.0",
+   "main": "package.ts",
+   "types": "package.ts",
    "scripts": {
       "test": "vitest",
       "start": "bun server.ts"
    },
-   "main": "package.ts",
-   "types": "package.ts",
    "dependencies": {
       "@prisma/client": "^6.1.0",
       "@trpc/server": "^11.0.0-rc.682",
