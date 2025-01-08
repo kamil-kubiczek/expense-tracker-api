@@ -26,11 +26,19 @@ export class AuthentificationService {
    generateRefreshTokenAndSaveInDatabase(user: Omit<User, "password">) {
       const { expiresIn, token } = this.jwtService.generateRefreshJWT({ payload: user })
 
-      return client.refreshToken.create({
-         data: {
+      return client.refreshToken.upsert({
+         where: {
+            userId: user.id
+         },
+         create: {
             token: token,
             userId: user.id,
             expiresAt: String(ms(expiresIn))
+         },
+         update: {
+            userId: user.id,
+            expiresAt: String(ms(expiresIn)),
+            token: token
          }
       })
    }
